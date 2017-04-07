@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Sayts.Models.PortInventory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { pid = ViewBag.CurrentPortID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ports.Facility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Port)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConnectorType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bandwidth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CircuitAssignment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NeighborPort)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ports.Facility)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Port)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConnectorType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bandwidth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CircuitAssignment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeighborPort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PortInventoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PortInventoryID }) |
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Sayts.Models.ArdaItem>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div id="DivGrid">
+    @{
+        var grid = new WebGrid(source: Model, canSort: false, rowsPerPage: 20);
+        @grid.GetHtml(htmlAttributes: new { id = "DataTable" }, columns: grid.Columns(
+            grid.Column(columnName: "ArdaCategory", header: "Category"),
+            grid.Column(columnName: "Units.Category", header: "Unit"),
+            grid.Column(columnName: "Units.BrandModel", header: "Brand"),
+            grid.Column(columnName: "Serial", header: "Serial"),
+            grid.Column(columnName: "Quantity", header: "Quantity"),
+            grid.Column(columnName: "SiteID", header: "SiteID"),
+            grid.Column(columnName: "Sitename", header: "Sitename"),
+            grid.Column(columnName: "Cluster", header: "Cluster"),
+            grid.Column(columnName: "Province", header: "Province"),
+            grid.Column(columnName: "SiteOwner", header: "SiteOwner"),
+            grid.Column(columnName: "ArdaStatus.Status", header: "ArdaStatus")
+        ));
+    }
+</div>
+
+<p>
+    &nbsp;
+</p>
+<p>
+
+    @Html.ActionLink("Back to List", "ClusterIndex")

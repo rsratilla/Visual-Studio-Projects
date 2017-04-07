@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Sayts.Models.GenSet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Genset Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sites.SiteCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Units.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitStatus.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Serial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDelivered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInstalled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ACLoading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Sites.SiteFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Units.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.UnitStatus.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Serial)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateDelivered)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateInstalled)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ACLoading)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.UpdateDate)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to Inventory Report Summary Home Page", "Index", "InventoryReportSummary", null, null)
+</p>

@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Sayts.Models.Rectifier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Rectifier Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sites.SiteCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Units.BrandModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitStatus.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Serial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDelivered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInstalled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DCPPType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RMActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RMDefective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voltage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BatteryCurr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RectifierCurr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DCLoading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeBackUp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Sites.SiteCode)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Units.BrandModel)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.UnitStatus.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Serial)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateDelivered)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateInstalled)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DCPPType)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.RMActive)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.RMDefective)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Voltage)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.BatteryCurr)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.RectifierCurr)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DCLoading)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.TimeBackUp)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.UpdateDate)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to Inventory Report Summary Home Page", "Index", "InventoryReportSummary", null, null)
+</p>
+

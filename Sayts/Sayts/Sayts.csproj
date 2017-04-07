@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FC23756-0D69-4470-823D-2FF6339E9374}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sayts</RootNamespace>
+    <AssemblyName>Sayts</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Schema, Version=2.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Schema.2.0.9\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NReco.PivotData, Version=1.3.4.0, Culture=neutral, PublicKeyToken=9ad162d4af1a824f, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.PivotData.1.3.4\lib\net40\NReco.PivotData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DataVisualization">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Web.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization.Design">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Web.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Windows.Forms.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization.Design">
+      <HintPath>..\packages\Microsoft.Chart.Controls.3.5.30729\lib\net35\System.Windows.Forms.DataVisualization.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActInactSitesController.cs" />
+    <Compile Include="Controllers\ACUsController.cs" />
+    <Compile Include="Controllers\ArdaItemsController.cs" />
+    <Compile Include="Controllers\ArdaReportSummaryController.cs" />
+    <Compile Include="Controllers\AreasController.cs" />
+    <Compile Include="Controllers\CaretakerReportSummaryController.cs" />
+    <Compile Include="Controllers\CaretakersController.cs" />
+    <Compile Include="Controllers\CSMPClassSummaryController.cs" />
+    <Compile Include="Controllers\BatteriesController.cs" />
+    <Compile Include="Controllers\BreakersController.cs" />
+    <Compile Include="Controllers\DecommissionsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\EngineerCountController.cs" />
+    <Compile Include="Controllers\ExtinguishersController.cs" />
+    <Compile Include="Controllers\GenSetsController.cs" />
+    <Compile Include="Controllers\GetJSONDataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoriesController.cs" />
+    <Compile Include="Controllers\InventoryReportSummaryController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OthersController.cs" />
+    <Compile Include="Controllers\PMRDeficienciesController.cs" />
+    <Compile Include="Controllers\PMRMastersController.cs" />
+    <Compile Include="Controllers\PMRReportSummaryController.cs" />
+    <Compile Include="Controllers\PortInventoriesController.cs" />
+    <Compile Include="Controllers\PortsController.cs" />
+    <Compile Include="Controllers\RectifiersController.cs" />
+    <Compile Include="Controllers\SheltersController.cs" />
+    <Compile Include="Controllers\SiteDetailsController.cs" />
+    <Compile Include="Controllers\SitesController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
+    <Compile Include="Controllers\TopologiesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612090404183_InitialCreate.cs" />
+    <Compile Include="Migrations\201612090404183_InitialCreate.Designer.cs">
+      <DependentUpon>201612090404183_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704010341320_ChangeCatToArCatAtArdaItem.cs" />
+    <Compile Include="Migrations\201704010341320_ChangeCatToArCatAtArdaItem.Designer.cs">
+      <DependentUpon>201704010341320_ChangeCatToArCatAtArdaItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Accessibility.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ACMainSource.cs" />
+    <Compile Include="Models\ACU.cs" />
+    <Compile Include="Models\ArdaGroup.cs" />
+    <Compile Include="Models\ArdaItem.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\AreaIndexData.cs" />
+    <Compile Include="Models\AssetOwnershipType.cs" />
+    <Compile Include="Models\Baranggay.cs" />
+    <Compile Include="Models\Battery.cs" />
+    <Compile Include="Models\Breaker.cs" />
+    <Compile Include="Models\Caretaker.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Cluster.cs" />
+    <Compile Include="Models\ClusterEmployeeGroup.cs" />
+    <Compile Include="Models\ClusterSiteCTGroup.cs" />
+    <Compile Include="Models\ClusterSiteGroup.cs" />
+    <Compile Include="Models\ClusterSiteInventoryGroup.cs" />
+    <Compile Include="Models\ClusterSitePMRGroup.cs" />
+    <Compile Include="Models\CMRReference.cs" />
+    <Compile Include="Models\CMRTracker.cs" />
+    <Compile Include="Models\CSMPClassification.cs" />
+    <Compile Include="Models\CSMPSiteGroup.cs" />
+    <Compile Include="Models\DataClasses.cs" />
+    <Compile Include="Models\Decommission.cs" />
+    <Compile Include="Models\ElectricCo.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeePosition.cs" />
+    <Compile Include="Models\EmploymentStatus.cs" />
+    <Compile Include="Models\ArdaStatus.cs" />
+    <Compile Include="Models\Extinguisher.cs" />
+    <Compile Include="Models\GenSet.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InventoryIndexData.cs" />
+    <Compile Include="Models\InventorySiteGroup.cs" />
+    <Compile Include="Models\LocationType.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Other.cs" />
+    <Compile Include="Models\PMRCheckList.cs" />
+    <Compile Include="Models\PMRDeficiency.cs" />
+    <Compile Include="Models\PMRMaster.cs" />
+    <Compile Include="Models\PMRSiteGroup.cs" />
+    <Compile Include="Models\Port.cs" />
+    <Compile Include="Models\PortInventory.cs" />
+    <Compile Include="Models\Rectifier.cs" />
+    <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\SecurityAndSafety.cs" />
+    <Compile Include="Models\ServiceCategory.cs" />
+    <Compile Include="Models\Shelter.cs" />
+    <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\SiteClassification.cs" />
+    <Compile Include="Models\SiteDetail.cs" />
+    <Compile Include="Models\SiteStatus.cs" />
+    <Compile Include="Models\SiteType.cs" />
+    <Compile Include="Models\SubBase.cs" />
+    <Compile Include="Models\SubTeam.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\TeamIndexData.cs" />
+    <Compile Include="Models\Terrain.cs" />
+    <Compile Include="Models\TransportCategory.cs" />
+    <Compile Include="Models\TXType.cs" />
+    <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\UnitStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\smart-icon.png" />
+    <Content Include="Content\Images\TOC.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\LocalSystem.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Teams\Create.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Areas\Create.cshtml" />
+    <Content Include="Views\Areas\Delete.cshtml" />
+    <Content Include="Views\Areas\Edit.cshtml" />
+    <Content Include="Views\Areas\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\ActInactSites\Index.cshtml" />
+    <Content Include="Views\CSMPClassSummary\Index.cshtml" />
+    <Content Include="Views\CSMPClassSummary\Details.cshtml" />
+    <Content Include="Views\Inventories\Index.cshtml" />
+    <Content Include="Views\GenSets\Create.cshtml" />
+    <Content Include="Views\GenSets\Delete.cshtml" />
+    <Content Include="Views\GenSets\Edit.cshtml" />
+    <Content Include="Views\Rectifiers\Create.cshtml" />
+    <Content Include="Views\Rectifiers\Delete.cshtml" />
+    <Content Include="Views\Rectifiers\Edit.cshtml" />
+    <Content Include="Views\Batteries\Create.cshtml" />
+    <Content Include="Views\Batteries\Delete.cshtml" />
+    <Content Include="Views\Batteries\Edit.cshtml" />
+    <Content Include="Views\ACUs\Create.cshtml" />
+    <Content Include="Views\ACUs\Delete.cshtml" />
+    <Content Include="Views\ACUs\Edit.cshtml" />
+    <Content Include="Views\Shelters\Create.cshtml" />
+    <Content Include="Views\Shelters\Delete.cshtml" />
+    <Content Include="Views\Shelters\Edit.cshtml" />
+    <Content Include="Views\Ports\Create.cshtml" />
+    <Content Include="Views\Ports\Delete.cshtml" />
+    <Content Include="Views\Ports\Edit.cshtml" />
+    <Content Include="Views\Breakers\Create.cshtml" />
+    <Content Include="Views\Breakers\Delete.cshtml" />
+    <Content Include="Views\Breakers\Edit.cshtml" />
+    <Content Include="Views\Breakers\Index.cshtml" />
+    <Content Include="Views\PortInventories\Create.cshtml" />
+    <Content Include="Views\PortInventories\Delete.cshtml" />
+    <Content Include="Views\PortInventories\Edit.cshtml" />
+    <Content Include="Views\PortInventories\Index.cshtml" />
+    <Content Include="Views\Topologies\Index.cshtml" />
+    <Content Include="Views\Inventories\GetDetails.cshtml" />
+    <Content Include="Views\Extinguishers\Create.cshtml" />
+    <Content Include="Views\Extinguishers\Delete.cshtml" />
+    <Content Include="Views\Extinguishers\Edit.cshtml" />
+    <Content Include="Views\Others\Create.cshtml" />
+    <Content Include="Views\Others\Edit.cshtml" />
+    <Content Include="Views\Others\Delete.cshtml" />
+    <Content Include="Views\PMRMasters\Create.cshtml" />
+    <Content Include="Views\PMRMasters\Delete.cshtml" />
+    <Content Include="Views\PMRMasters\Edit.cshtml" />
+    <Content Include="Views\PMRMasters\Index.cshtml" />
+    <Content Include="Views\PMRDeficiencies\Create.cshtml" />
+    <Content Include="Views\PMRDeficiencies\Delete.cshtml" />
+    <Content Include="Views\PMRDeficiencies\Edit.cshtml" />
+    <Content Include="Views\PMRDeficiencies\Index.cshtml" />
+    <Content Include="Views\PMRDeficiencies\Upload.cshtml" />
+    <Content Include="Views\PMRMasters\Upload.cshtml" />
+    <Content Include="Views\Caretakers\Create.cshtml" />
+    <Content Include="Views\Caretakers\Delete.cshtml" />
+    <Content Include="Views\Caretakers\Edit.cshtml" />
+    <Content Include="Views\Caretakers\Index.cshtml" />
+    <Content Include="Views\PMRReportSummary\Index.cshtml" />
+    <Content Include="Views\PMRReportSummary\Details.cshtml" />
+    <Content Include="Views\ActInactSites\Details.cshtml" />
+    <Content Include="Views\InventoryReportSummary\Index.cshtml" />
+    <Content Include="Views\InventoryReportSummary\GensetDetails.cshtml" />
+    <Content Include="Views\CaretakerReportSummary\Index.cshtml" />
+    <Content Include="Views\CaretakerReportSummary\Details.cshtml" />
+    <Content Include="Views\Decommissions\Create.cshtml" />
+    <Content Include="Views\Decommissions\Delete.cshtml" />
+    <Content Include="Views\Decommissions\Edit.cshtml" />
+    <Content Include="Views\Decommissions\Index.cshtml" />
+    <Content Include="Views\EngineerCount\Index.cshtml" />
+    <Content Include="Views\EngineerCount\Details.cshtml" />
+    <Content Include="Views\Sites\Create.cshtml" />
+    <Content Include="Views\Sites\Delete.cshtml" />
+    <Content Include="Views\Sites\Edit.cshtml" />
+    <Content Include="Views\Sites\Index.cshtml" />
+    <Content Include="Views\Sites\Index2.cshtml" />
+    <Content Include="Views\InventoryReportSummary\RectifierDetails.cshtml" />
+    <Content Include="Views\InventoryReportSummary\BatteryDetails.cshtml" />
+    <Content Include="Views\InventoryReportSummary\ACUDetails.cshtml" />
+    <Content Include="Views\InventoryReportSummary\GenSetIndex.cshtml" />
+    <Content Include="Views\InventoryReportSummary\RectifierIndex.cshtml" />
+    <Content Include="Views\InventoryReportSummary\ACUIndex.cshtml" />
+    <Content Include="Views\InventoryReportSummary\BatteryIndex.cshtml" />
+    <Content Include="Views\GenSets\Index.cshtml" />
+    <Content Include="Views\Rectifiers\Index.cshtml" />
+    <Content Include="Views\ACUs\Index.cshtml" />
+    <Content Include="Views\Batteries\Index.cshtml" />
+    <Content Include="Views\SiteDetails\Create.cshtml" />
+    <Content Include="Views\SiteDetails\Delete.cshtml" />
+    <Content Include="Views\SiteDetails\Details.cshtml" />
+    <Content Include="Views\SiteDetails\Edit.cshtml" />
+    <Content Include="Views\SiteDetails\Index.cshtml" />
+    <Content Include="Views\ArdaItems\Create.cshtml" />
+    <Content Include="Views\ArdaItems\Delete.cshtml" />
+    <Content Include="Views\ArdaItems\Details.cshtml" />
+    <Content Include="Views\ArdaItems\Edit.cshtml" />
+    <Content Include="Views\ArdaItems\Index.cshtml" />
+    <Content Include="Views\ArdaReportSummary\Index.cshtml" />
+    <Content Include="Views\ArdaReportSummary\CategoryIndex.cshtml" />
+    <Content Include="Views\ArdaReportSummary\ItemIndex.cshtml" />
+    <Content Include="Views\ArdaReportSummary\SiteIndex.cshtml" />
+    <Content Include="Views\ArdaReportSummary\ClusterIndex.cshtml" />
+    <Content Include="Views\ArdaReportSummary\SiteOwnerIndex.cshtml" />
+    <Content Include="Views\ArdaReportSummary\StatusIndex.cshtml" />
+    <Content Include="Views\ArdaReportSummary\CategoryDetails.cshtml" />
+    <Content Include="Views\ArdaReportSummary\ItemDetails.cshtml" />
+    <Content Include="Views\ArdaReportSummary\ClusterDetails.cshtml" />
+    <Content Include="Views\ArdaReportSummary\SiteDetails.cshtml" />
+    <Content Include="Views\ArdaReportSummary\SiteOwnerDetails.cshtml" />
+    <Content Include="Views\ArdaReportSummary\StatusDetails.cshtml" />
+    <Content Include="Views\ArdaItems\Upload.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Pictures\ArdaItems\" />
+    <Folder Include="Pictures\PMRPictures\Details\" />
+    <Folder Include="Pictures\PMRPictures\Master\" />
+    <Folder Include="Pictures\Topology\" />
+    <Folder Include="Views\GetJSONData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612090404183_InitialCreate.resx">
+      <DependentUpon>201612090404183_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704010341320_ChangeCatToArCatAtArdaItem.resx">
+      <DependentUpon>201704010341320_ChangeCatToArCatAtArdaItem.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>24495</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:24495/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

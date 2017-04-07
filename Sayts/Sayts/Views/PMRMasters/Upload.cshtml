@@ -1,0 +1,28 @@
+﻿@model Sayts.Models.PMRMaster
+
+@{
+    ViewBag.Title = "Upload Picture";
+    ViewBag.PMRMasterID = Model.PMRMasterID;
+}
+
+<h2>Upload Picture</h2>
+<p></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayFor(model => model.Sites.SiteFullName)
+        </th>
+    </tr>
+</table>
+
+@using (Html.BeginForm("SavePicture", "PMRMasters", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <label for="file">Upload a picture (must be in pdf format):</label>
+        <input type="file" name="file" id="file" /><br /><br />
+        <input type="submit" name="Submit" id="submit" value="Upload File" />  |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

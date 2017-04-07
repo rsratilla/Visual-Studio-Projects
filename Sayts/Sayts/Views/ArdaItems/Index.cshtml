@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Sayts.Models.ArdaItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Category
+        </th>
+        <td>
+            @Html.DisplayNameFor(model => model.Serial)
+        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.Units.CategoryBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sitename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cluster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteOwner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StagingArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Origin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RDFControl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArdaStatus.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.ArdaCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Serial)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Units.CategoryBrand)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.SiteID)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Reason)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Sitename)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Cluster)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Province)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.SiteAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.SiteOwner)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.OriginalLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.PickUpLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.StagingArea)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Origin)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.RDFControl)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Approver)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Department)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.ArdaStatus.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Remarks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ArdaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ArdaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ArdaID }) |
+            @Html.ActionLink("Add Picture", "Upload", new { id = item.ArdaID }) |
+            @Html.ActionLink("View Picture", "View", new { id = item.ArdaID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Sayts.Models.ClusterSiteGroup>
+
+@{
+    ViewBag.Title = "Active Sites Summary";
+}
+
+<h2>Active Sites Summary</h2>
+
+<table>
+    <tr>
+        <th>
+            Cluster
+        </th>
+        <th>
+            Active Sites
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClusterNo)
+            </td>
+            <td>
+                @item.SiteCount
+            </td>
+            <td>
+                @Html.ActionLink("View Details in Browser", "Details", new { id = item.ClusterNo })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    &nbsp;
+</p>
+
+<p>
+    @Html.ActionLink("View Details in Browser", "Details")
+</p>
+
+<p>
+    @Html.ActionLink("Export All to Excel", "ExportToExcel")
+</p>

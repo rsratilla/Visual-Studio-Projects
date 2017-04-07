@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Sayts.Models.PMRMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Site Owner
+        </th>
+        <th>
+            Site
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PMRDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteClassification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PMRType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WithGS)
+        </th>
+        <th>
+            Coordination No
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lilo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainsSimulStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MainsSimulRemarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employees.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sites.SiteFullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMRDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteClassification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PMRType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WithGS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoordinationNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lilo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainsSimulStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MainsSimulRemarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PMRMasterID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PMRMasterID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PMRMasterID }) |
+            @Html.ActionLink("Add Picture", "Upload", new { id = item.PMRMasterID }) |
+            @Html.ActionLink("View Picture", "View", new { id = item.PMRMasterID })
+        </td>
+    </tr>
+}
+
+</table>

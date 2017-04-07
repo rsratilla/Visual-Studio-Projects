@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Sayts.Models.Caretaker>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sites.SiteCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Agency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EffectivityDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sites.SiteFullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Agency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EffectivityDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CaretakerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CaretakerID })
+        </td>
+    </tr>
+}
+
+</table>

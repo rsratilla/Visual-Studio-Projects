@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Sayts.Models.ClusterEmployeeGroup>
+    
+@{
+    ViewBag.Title = "Engineer Count";
+}
+
+<h2>Engineer Count</h2>
+
+<table>
+    <tr>
+        <th>
+            Cluster
+        </th>
+        <th>
+            CT Count
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClusterNo)
+            </td>
+            <td>
+                @item.EmployeeCount
+            </td>
+            <td>
+                @Html.ActionLink("View Employees in Browser", "Details", new { id = item.ClusterNo })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    &nbsp;
+</p>
+
+<p>
+    @Html.ActionLink("View All Employees in Browser", "Index", "Employees", null, null)
+</p>
+
+<p>
+    @Html.ActionLink("Export All Employees to Excel", "ExportToExcel")
+</p>

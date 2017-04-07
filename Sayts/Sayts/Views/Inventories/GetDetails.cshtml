@@ -1,0 +1,578 @@
+﻿@model Sayts.Models.InventoryIndexData
+
+@{
+    ViewBag.Title = "Inventories";
+}
+
+<h3>Inventories</h3>
+
+@if (Model.Sites != null)
+{
+    if (Model.Sites.Count() > 0)
+    {
+    <h4>Sites</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Site Code
+            </th>
+            <th>
+                Site Name
+            </th>
+            <th>
+                Add
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Sites)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiteCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SiteName)
+                </td>
+                <td>
+                    @Html.ActionLink("GS", "RedirectToGenSetController", new { id = item.SiteID }, new { Class = "action add", title = "Add New GenSet" })  |
+                    @Html.ActionLink("RE", "RedirectToRectifierController", new { id = item.SiteID }, new { Class = "action add", title = "Add New Rectifier" })  |
+                    @Html.ActionLink("BA", "RedirectToBatteryController", new { id = item.SiteID }, new { Class = "action add", title = "Add New Battery" })  |
+                    @Html.ActionLink("AC", "RedirectToACUController", new { id = item.SiteID }, new { Class = "action add", title = "Add New ACU" })  |
+                    @Html.ActionLink("EX", "RedirectToExtinguisherController", new { id = item.SiteID }, new { Class = "action add", title = "Add New Extinguisher" })  |
+                    @Html.ActionLink("SH", "RedirectToShelterController", new { id = item.SiteID }, new { Class = "action add", title = "Add New Shelter" })  |
+                    @Html.ActionLink("OT", "RedirectToOtherController", new { id = item.SiteID }, new { Class = "action add", title = "Add New Other Details" })  |
+                    @Html.ActionLink("PO", "RedirectToPortController", new { id = item.SiteID }, new { Class = "action add", title = "Add New Port Inventory" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.GenSets != null)
+{
+    if (Model.GenSets.Count() > 0)
+    {
+    <h4>GenSets</h4>
+    <table class="table">
+        <tr>
+            <th>Brand/Model</th>
+            <th>Serial</th>
+            <th>Status</th>
+            <th>Capacity</th>
+            <th>Date Delivered</th>
+            <th>Date Installed</th>
+            <th>AC Loading</th>
+            <th>Remarks</th>
+            <th>Date Updated</th>
+        </tr>
+        @foreach (var item in Model.GenSets)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACLoading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "GenSets", new { gid = item.GenSetID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "GenSets", new { gid = item.GenSetID }, new { Class = "action delete", title = "Delete Details" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.Rectifiers != null)
+{
+    if (Model.Rectifiers.Count() > 0)
+    {
+    <h4>Rectifier</h4>
+    <table class="table">
+        <tr>
+            <th>Brand/Model</th>
+            <th>Serial</th>
+            <th>Status</th>
+            <th>Date Delivered</th>
+            <th>Date Installed</th>
+            <th>DCPP Type</th>
+            <th>Active RMs</th>
+            <th>Defective RMs</th>
+            <th>Voltage</th>
+            <th>Battery Current</th>
+            <th>Rectifier Current</th>
+            <th>DC Loading</th>
+            <th>Backup Time</th>
+            <th>Remarks</th>
+            <th>Date Updated</th>
+        </tr>
+        @foreach (var item in Model.Rectifiers)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DCPPType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RMActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RMDefective)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voltage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatteryCurr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RectifierCurr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DCLoading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeBackUp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "Rectifiers", new { rid = item.RectifierID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "Rectifiers", new { rid = item.RectifierID }, new { Class = "action add", title = "Delete Details" })  |
+                    @Html.ActionLink("VI", "Index", "Breakers", new { rid = item.RectifierID }, new { Class = "action view", title = "View Breakers" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.Batteries != null)
+{
+    if (Model.Batteries.Count() > 0)
+    {
+    <h4>Batteries</h4>
+    <table class="table">
+        <tr>
+            <th>Brand/Model</th>
+            <th>Status</th>
+            <th>Date Delivered</th>
+            <th>Date Installed</th>
+            <th>Remarks</th>
+            <th>Date Updated</th>
+        </tr>
+        @foreach (var item in Model.Batteries)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "Batteries", new { bid = item.BatteryID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "Batteries", new { bid = item.BatteryID }, new { Class = "action add", title = "Delete Details" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.ACUs != null)
+{
+    if (Model.ACUs.Count() > 0)
+    {
+    <h4>ACUs</h4>
+    <table class="table">
+        <tr>
+            <th>Brand/Model</th>
+            <th>Type</th>
+            <th>Serial</th>
+            <th>Status</th>
+            <th>Date Delivered</th>
+            <th>Date Installed</th>
+            <th>Remarks</th>
+            <th>Date Updated</th>
+        </tr>
+        @foreach (var item in Model.ACUs)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "ACUs", new { aid = item.ACUID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "ACUs", new { aid = item.ACUID }, new { Class = "action add", title = "Delete Details" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.Shelters != null)
+{
+    if (Model.Shelters.Count() > 0)
+    {
+    <h4>Shelters</h4>
+    <table class="table">
+        <tr>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Remarks</th>
+            <th>Date Updated</th>
+        </tr>
+        @foreach (var item in Model.Shelters)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "Shelters", new { hid = item.ShelterID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "Shelters", new { hid = item.ShelterID }, new { Class = "action add", title = "Delete Details" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.Extinguishers != null)
+{
+    if (Model.Extinguishers.Count() > 0)
+    {
+    <h4>Extinguisher</h4>
+    <table class="table">
+        <tr>
+            <th>Brand/Model</th>
+            <th>Serial</th>
+            <th>Status</th>
+            <th>Remarks</th>
+            <th>Date Updated</th>
+        </tr>
+        @foreach (var item in Model.Extinguishers)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "Extinguishers", new { eid = item.ExtinguisherID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "Extinguishers", new { eid = item.ExtinguisherID }, new { Class = "action add", title = "Delete Details" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.Ports != null)
+{
+    if (Model.Ports.Count() > 0)
+    {
+    <h4>Ports</h4>
+    <table class="table">
+        <tr>
+            <th>Facility</th>
+            <th>Port Type</th>
+            <th>NoOfPorts</th>
+        </tr>
+        @foreach (var item in Model.Ports)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Facility)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PortType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfPorts)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "Ports", new { pid = item.PortID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "Ports", new { pid = item.PortID }, new { Class = "action add", title = "Delete Details" })   |
+                    @Html.ActionLink("VI", "Index", "PortInventories", new { pid = item.PortID }, new { Class = "action view", title = "View Details" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}
+
+@if (Model.Others != null)
+{
+    if (Model.Others.Count() > 0)
+    {
+    <h4>Others</h4>
+    <table class="table">
+        <tr>
+            <th>ATS Serial</th>
+            <th>ATS Type</th>
+            <th>ATS Status</th>
+            <th>ATS Date Delivered</th>
+            <th>ATS Date Installed</th>
+            <th>ATS W/Crank Module</th>
+            <th>ATS W/ Bat Charger</th>
+            <th>ATS Remarks</th>
+            <th>Fuel Tank Status</th>
+            <th>Fuel Tank Capacity</th>
+            <th>Fuel Tank Remarks</th>
+            <th>Fuel Line Status</th>
+            <th>Fuel Line Remarks</th>
+            <th>TVSS Serial</th>
+            <th>TVSS Type</th>
+            <th>TVSS Status</th>
+            <th>TVSS Remarks</th>
+            <th>Exhaust Fan Status</th>
+            <th>Exhaust Fan Remarks</th>
+            <th>Tower Type</th>
+            <th>Tower Height</th>
+            <th>Tower Status</th>
+            <th>Tower Remarks</th>
+            <th>Tower Light Status</th>
+            <th>Tower Light Remarks</th>
+            <th>Fence Remarks</th>
+            <th>Lightning Arrester Status</th>
+            <th>Bus Bar Termination Status</th>
+            <th>Tower Grounding Status</th>
+            <th>Last Updated</th>
+        </tr>
+        @foreach (var item in Model.Others)
+        {
+            string selectedRow = "";
+            if (item.SiteID == ViewBag.SiteID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSSerial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasCrankModule)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasBatCharger)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSRemarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FTStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FTCapacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FTRemarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FLStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FLRemarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TVSSerial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TVSSType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TVSSRemarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EFStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EFRemarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToHeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToRemarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TLStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TLRemarks)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FenceRemarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LAStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BBStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TGStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ED", "Edit", "Others", new { oid = item.OthersID }, new { Class = "action add", title = "Edit Details" })  |
+                    @Html.ActionLink("DE", "Delete", "Others", new { oid = item.OthersID }, new { Class = "action add", title = "Delete Details" })
+                </td>
+            </tr>
+        }
+    </table>
+    }
+}

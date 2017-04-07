@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Sayts.Models.ArdaGroup>
+
+@{
+    ViewBag.Title = "Arda Report Summary";
+}
+
+<h2>Arda Report Summary</h2>
+
+<p></p>
+
+<table>
+    <tr>
+        <th>
+            Item
+        </th>
+        <th>
+            Record Count
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.GroupBy
+            </td>
+            <td>
+                @item.RecordCount
+            </td>
+
+            <td>
+                @Html.ActionLink("View Details in Browser", "ItemDetails", new { id = @item.GroupBy });
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    &nbsp;
+</p>
+
+<p>
+    @Html.ActionLink("Back to Arda Report Summary", "Index")
+</p>

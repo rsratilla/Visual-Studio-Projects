@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Sayts.Models.ClusterSitePMRGroup>
+
+@{
+    ViewBag.Title = "PMR Report Summary";
+}
+
+<h2>PMR Report Summary</h2>
+
+<table>
+    <tr>
+        <th>
+            Cluster
+        </th>
+        <th>
+            PMR Count
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClusterNo)
+            </td>
+            <td>
+                @item.PMRCount
+            </td>
+            <td>
+                @Html.ActionLink("View Details in Browser", "Details", new { id = item.ClusterNo })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    &nbsp;
+</p>
+
+<p>
+    @Html.ActionLink("View All Details in Browser", "Index", "PMRMasters", null, null)
+</p>
+
+<p>
+    @Html.ActionLink("Export All to Excel", "ExportToExcel")
+</p>

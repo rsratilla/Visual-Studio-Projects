@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Sayts.Models.ClusterSiteInventoryGroup>
+
+@{
+    ViewBag.Title = "Inventory Report Summary";
+}
+
+<h2>Inventory Report Summary</h2>
+
+@using (Html.BeginForm("Index", "InventoryReportSummary", FormMethod.Get))
+{
+    <div class="form-group">
+        <div class="radio-inline">
+            @Html.RadioButton("category", "Genset", true, new { category = "Genset" }) Genset
+        </div>
+        <div class="radio-inline">
+            @Html.RadioButton("category", "Rectifier", false, new { category = "Rectifier" }) Rectifier
+        </div>
+          <div class="radio-inline">
+            @Html.RadioButton("category", "ACU", false, new { category = "ACU" }) ACU
+        </div>
+        <div class="radio-inline">
+            @Html.RadioButton("category", "Battery", false, new { category = "Battery" }) Battery
+        </div>
+        <div>
+            <input type="submit" class="btn btn-default" value="Submit" />
+        </div>
+     </div>
+}
+
+<p></p>
+
+<p>
+    @Html.ActionLink("Export All to Excel", "ExportToExcel")
+</p>

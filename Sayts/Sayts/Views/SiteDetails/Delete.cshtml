@@ -1,0 +1,288 @@
+﻿@model Sayts.Models.SiteDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SiteDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sites.SiteFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sites.SiteFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SunID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SunID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Accessibilities.AccessibilityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accessibilities.AccessibilityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACMainSources.ACMName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACMainSources.ACMName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Areas.AreaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Areas.AreaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssetOwnershipTypes.AssetOwnership)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssetOwnershipTypes.AssetOwnership)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Baranggays.BarangayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baranggays.BarangayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cities.CityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cities.CityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clusters.ClusterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clusters.ClusterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CSMPClassifications.CSMPClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CSMPClassifications.CSMPClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationTypes.LocationTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationTypes.LocationTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Regions.RegionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regions.RegionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecurityAndSafetys.SASName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecurityAndSafetys.SASName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceCategories.ServiceCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceCategories.ServiceCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteClassifications.SiteClassificationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteClassifications.SiteClassificationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteStatus.SiteStatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteStatus.SiteStatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteTypes.SiteTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteTypes.SiteTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Terrains.TerrainName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Terrains.TerrainName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransportCategories.TransportCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransportCategories.TransportCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TXTypes.TXTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TXTypes.TXTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseLotNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseLotNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lattitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lattitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubBase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccessIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccessIssue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeOfIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeOfIssue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RiskCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RiskCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccessPassTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccessPassTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MonthlyRevenue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MonthlyRevenue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForCSMPPMR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForCSMPPMR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

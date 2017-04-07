@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Sayts.Models.Caretaker>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div id="DivGrid">
+    @{
+        var grid = new WebGrid(source: Model, canSort: false, rowsPerPage: 20);
+        @grid.GetHtml(htmlAttributes: new { id = "DataTable" }, columns: grid.Columns(
+            grid.Column(columnName: "Sites.SiteFullName", header: "Site"),
+            grid.Column(columnName: "Agency", header: "Agency"),
+            grid.Column(columnName: "Address", header: "Address"),
+            grid.Column(columnName: "Active", header: "Active"),
+            grid.Column(columnName: "CTName", header: "Name of CT"),
+            grid.Column(columnName: "EffectivityDate", header: "EffectivityDate"),
+            grid.Column(columnName: "ContactNo", header: "ContactNo"),
+            grid.Column(columnName: "Remarks", header: "Remarks")
+        ));
+    }
+</div>
+
+<p>
+    &nbsp;
+</p>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")

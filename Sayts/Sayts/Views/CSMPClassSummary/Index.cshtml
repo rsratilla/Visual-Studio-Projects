@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Sayts.Models.CSMPSiteGroup>
+
+@{
+    ViewBag.Title = "CSMP Classification Summary";
+}
+
+<h2>CSMP Classification Summary</h2>
+
+<table>
+    <tr>
+        <th>
+            Classification
+        </th>
+        <th>
+            Site Count
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CSMPDefinition)
+            </td>
+            <td>
+                @item.SiteCount
+            </td>
+            <td>
+                @Html.ActionLink("View Details in Browser", "Details", new { id = item.CSMPClassID })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    &nbsp;
+</p>
+
+<p>
+    @Html.ActionLink("View All Details in Browser", "Details", new { })
+</p>
+
+<p>
+    @Html.ActionLink("Export All to Excel", "ExportToExcel")
+</p>
+
+

@@ -1,0 +1,184 @@
+﻿@model Sayts.Models.AreaIndexData
+
+@{
+    ViewBag.Title = "Areas";
+}
+
+<h2>Areas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Area
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Areas) {
+    string selectedRow = "";
+    if (item.AreaID == ViewBag.AreaID)
+    {
+        selectedRow = "success";
+    }
+    <tr class="@selectedRow" valign="top">
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaName)
+        </td>
+        <td>
+            @Html.ActionLink("Select", "Index", new { id=item.AreaID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.AreaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AreaID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@if (Model.Clusters != null)
+{
+    <h3>Clusters on Selected Areas</h3>
+    <table class="table">
+        <tr>
+            <th>Cluster No</th>
+            <th>Cluster Name</th>
+            <th>AOR</th>
+        </tr>
+        @foreach (var item in Model.Clusters)
+        {
+            string selectedRow = "";
+            if (item.AreaID == ViewBag.AreaID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClusterID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClusterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AORName)
+                </td>
+                <td>
+                    @Html.ActionLink("Select", "Index", new { ClusterID = item.ClusterID })
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.Cities != null)
+{
+    <h3>Cities on Selected Cluster</h3>
+    <table class="table">
+        <tr>
+            <th>Cities/Municipalities</th>
+            <th>Provinces</th>
+        </tr>
+        @foreach (var item in Model.Cities)
+        {
+            string selectedRow = "";
+            if (item.ClusterID == ViewBag.ClusterID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProvinceName)
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.Employees != null)
+{
+    <h3>Engineers under the Selected Cluster</h3>
+    <table class="table">
+        <tr>
+            <th>EmployeeNo</th>
+            <th>Full Name</th>
+            <th>MobileNo</th>
+        </tr>
+        @foreach (var item in Model.Employees)
+        {
+            string selectedRow = "";
+            if (item.ClusterID == ViewBag.ClusterID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNo)
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.ElectricCos != null)
+{
+    <h3>Electric Companies serving the Selected Cluster</h3>
+    <table class="table">
+        <tr>
+            <th>Payee</th>
+            <th>PayeeType</th>
+            <th>Network</th>
+        </tr>
+        @foreach (var item in Model.ElectricCos)
+        {
+            string selectedRow = "";
+            if (item.ClusterID == ViewBag.ClusterID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayeeType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Network)
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.SubBases != null)
+{
+    <h3>Sub-bases under the Selected Cluster</h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+        </tr>
+        @foreach (var item in Model.SubBases)
+        {
+            string selectedRow = "";
+            if (item.ClusterID == ViewBag.ClusterID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubBaseName)
+                </td>
+            </tr>
+        }
+    </table>
+}

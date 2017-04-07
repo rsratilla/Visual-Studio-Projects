@@ -1,0 +1,115 @@
+﻿@model Sayts.Models.PMRMaster
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>PMRMaster</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PMRMasterID)
+
+        <div class="row">
+            @Html.LabelFor(model => model.PMRDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.PMRDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PMRDate, "", new { @class = "text-danger" })
+            </div>
+             
+            @Html.LabelFor(model => model.SiteID, "SiteID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("SiteID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SiteID, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.EmployeeNo, "Site Owner", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.DropDownList("EmployeeNo", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmployeeNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <p></p>
+
+        <div class="row">
+            @Html.LabelFor(model => model.SiteClassification, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EnumDropDownListFor(model => model.SiteClassification, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SiteClassification, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.PMRType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EnumDropDownListFor(model => model.PMRType, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PMRType, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.WithGS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.WithGS)
+                    @Html.ValidationMessageFor(model => model.WithGS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <p></p>
+
+        <div class="row">
+            @Html.LabelFor(model => model.CoordinationNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.CoordinationNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CoordinationNo, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.Lilo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Lilo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Lilo, "", new { @class = "text-danger" })
+            </div>
+
+            @Html.LabelFor(model => model.MainsSimulStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EnumDropDownListFor(model => model.MainsSimulStatus, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MainsSimulStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <p></p>
+
+        <div class="row">
+            @Html.LabelFor(model => model.MainsSimulRemarks, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.MainsSimulRemarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MainsSimulRemarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <p></p>
+
+        <div class="row">
+            <div class="col-md-offset-2 col-md-2">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

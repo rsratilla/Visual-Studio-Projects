@@ -1,0 +1,72 @@
+﻿@model Sayts.Models.Decommission
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Decommission</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Clusters.ClusterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clusters.ClusterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sitename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sitename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDecom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDecom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Services)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Services)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reason)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

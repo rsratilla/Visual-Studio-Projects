@@ -1,0 +1,104 @@
+﻿@model Sayts.Models.GenSet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GenSet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sites.SiteCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sites.SiteFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Units.BrandModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Units.BrandModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitStatus.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitStatus.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Serial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Serial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDelivered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDelivered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateInstalled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateInstalled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACLoading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACLoading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Inventory List", "GetDetails", "Inventories", new { id = Model.SiteID }, null)
+        </div>
+    }
+</div>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Sayts.Models.SiteDetail>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div id = "DivGrid">
+    @{ 
+        var grid = new WebGrid(source: Model, canSort: false, rowsPerPage: 20);
+        @grid.GetHtml(htmlAttributes: new { id = "DataTable"}, columns: grid.Columns(
+            grid.Column(columnName: "Clusters.ClusterName", header: "Cluster"),
+            grid.Column(columnName: "Sites.SiteCode", header: "SiteCode"),
+            grid.Column(columnName: "Sites.SiteName", header: "SiteName"),
+            grid.Column(columnName: "CSMPClassifications.CSMPClass", header: "Classification")
+        ));
+    }
+</div>
+
+<p>
+    &nbsp;
+</p>
+<p>
+
+@Html.ActionLink("Back to List", "Index")
+
+

@@ -1,0 +1,60 @@
+﻿@model Sayts.Models.TeamIndexData
+@{
+    ViewBag.Title = "Teams";
+}
+
+<h2>Teams</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            TeamName
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Teams) {
+    string selectedRow = "";
+    if (item.TeamID == ViewBag.TeamID)
+    {
+        selectedRow = "success";
+    }
+    <tr class="@selectedRow" valign="top">
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamName)
+        </td>
+        <td>
+            @Html.ActionLink("Select", "Index", new { id =item.TeamID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.TeamID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TeamID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@if (Model.SubTeams != null)
+{
+    <h3>Subteams on Selected Team</h3>
+    <table class="table">
+        <tr>
+            <th>Sub Team</th>
+        </tr>
+        @foreach (var item in Model.SubTeams)
+        {
+            string selectedRow = "";
+            if (item.TeamID == ViewBag.TeamID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @item.SubTeamName
+                </td>
+            </tr>
+        }
+    </table>
+}

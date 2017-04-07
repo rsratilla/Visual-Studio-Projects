@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Sayts.Models.SiteDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("Index", "Sites", FormMethod.Get))
+{
+    <table class="searchtable">
+        <tr>
+            <th>Find by Site:</th>
+            <th>@Html.TextBox("SearchString1", null, new { @class = "form-control", id = "SearchString1" })</th>
+            <th>Find by Cluster:</th>
+            <th>@Html.TextBox("SearchString2", null, new { @class = "form-control", id = "SearchString2" })</th>
+            <th>Find by SunID:</th>
+            <th>@Html.TextBox("SearchString3", null, new { @class = "form-control", id = "SearchString3" })</th>
+        </tr>
+        <tr>
+            <th>Find by City:</th>
+            <th>@Html.TextBox("SearchString4", null, new { @class = "form-control", id = "SearchString4" })</th>
+            <th>Find by Region:</th>
+            <th>@Html.TextBox("SearchString5", null, new { @class = "form-control", id = "SearchString5" })</th>
+            <th></th>
+            <th><input type="submit" class="btn btn-default" value="Search" /></th>
+        </tr>
+    </table>
+}
+
+<p></p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            SiteID
+        </th>
+        <th>
+            Cluster
+        </th>
+        <th>
+            SunID
+        </th>
+        <th>
+            City
+        </th>
+
+        <th>
+            Region
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sites.SiteFullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clusters.ClusterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SunID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cities.CityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Regions.RegionFullName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.SiteID }) |
+            @Html.ActionLink("Details", "RedirectToSiteDetailsController", new { id = item.SiteID }, null)  |
+            @Html.ActionLink("Delete", "Delete", new { id = item.SiteID })
+        </td>
+    </tr>
+    }
+}
+
+
+</table>

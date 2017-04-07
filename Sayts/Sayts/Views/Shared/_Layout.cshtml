@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style type="text/css">
+	    .bs-example{
+    	    margin: 20px;
+        }
+        hr{
+            margin: 60px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-collapse">
+        <div class="container">
+            <ul class="nav nav-pills">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Site Master <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Sites", "Index", "Sites")</li>
+                        <li>@Html.ActionLink("PMR", "Index", "PMRMasters")</li>
+                        <li>@Html.ActionLink("Inventory", "Index", "Inventories")</li>
+                        <li>@Html.ActionLink("Network Topology", "Index", "Topologies")</li>
+                        <li>@Html.ActionLink("Site Caretakers", "Index", "Caretakers")</li>
+                        <li>@Html.ActionLink("Decommissioned Sites", "Index", "Decommissions")</li>
+                        <li>@Html.ActionLink("ARDA Items", "Index", "ArdaItems")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reference Tables <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Areas", "Index", "Areas")</li>
+                        <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reports <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Active Sites Summary", "Index", "ActInactSites")</li>
+                        <li>@Html.ActionLink("CSMP Classification Summary", "Index", "CSMPClassSummary")</li>
+                        <li>@Html.ActionLink("PMR Report Summary", "Index", "PMRReportSummary")</li>
+                        <li>@Html.ActionLink("Inventory Summary", "Index", "InventoryReportSummary")</li>
+                        <li>@Html.ActionLink("Engineer Count", "Index", "EngineerCount")</li>
+                        <li>@Html.ActionLink("Caretaker Summary", "Index", "CaretakerReportSummary")</li>
+                        <li>@Html.ActionLink("Arda Report Summary", "Index", "ArdaReportSummary")</li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Cell Sites Information Database</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>                                		

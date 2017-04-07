@@ -1,0 +1,28 @@
+﻿@model Sayts.Models.ArdaItem
+
+@{
+    ViewBag.Title = "Upload Picture";
+    ViewBag.ArdaID = Model.ArdaID;
+}
+
+<h2>Upload Picture</h2>
+<p></p>
+<table class="table">
+    <tr>
+        <th>
+            Site: @Html.DisplayFor(model => model.SiteID)
+        </th>
+    </tr>
+</table>
+
+@using (Html.BeginForm("SavePicture", "ArdaItems", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <label for="file">Upload a picture (must be in pdf format):</label>
+        <input type="file" class="form-control" name="file" id="file" /><p></p>
+        <input type="submit" name="Submit" id="submit" value="Upload File" />  |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

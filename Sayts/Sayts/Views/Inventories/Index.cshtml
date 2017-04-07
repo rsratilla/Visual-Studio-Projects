@@ -1,0 +1,368 @@
+﻿@model Sayts.Models.InventoryIndexData
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Inventory</h3>
+
+@using (Html.BeginForm("Index", "Inventories", FormMethod.Get))
+{
+<table class="searchtable">
+    <tr>
+        <th>Find by Site:</th>
+        <th>@Html.TextBox("SearchString1", null, new { @class = "form-control", id = "SearchString1" })</th>
+        <th>Find by Genset Serial:</th> 
+        <th>@Html.TextBox("SearchString2", null, new { @class = "form-control", id = "SearchString2" })</th>
+        <th>Find by ATS Serial:</th> 
+        <th>@Html.TextBox("SearchString3", null, new { @class = "form-control", id = "SearchString3" })</th>
+    </tr>
+    <tr>
+        <th>Find by Rectifier Serial:</th>
+        <th>@Html.TextBox("SearchString4", null, new { @class = "form-control", id = "SearchString4" })</th>
+        <th>Find by ACU Serial:</th>
+        <th>@Html.TextBox("SearchString5", null, new { @class = "form-control", id = "SearchString5" })</th>
+        <th></th> <th><input type="submit" class="btn btn-default" value="Search" /></th>
+    </tr>
+</table>
+}
+
+<p></p>
+
+@if (Model.Sites != null)
+{ 
+if (Model.Sites.Count() > 0)
+{
+    <h4>Sites</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Site Code
+            </th>
+            <th>
+                Site Name
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model.Sites)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SiteName)
+            </td>
+            <td>
+                @Html.ActionLink("View Details", "GetDetails", new { id = item.SiteID })
+            </td>
+        </tr>
+    }
+    </table>    
+}
+}
+
+@if (Model.GenSets != null)
+{ 
+if (Model.GenSets.Count() > 0)
+{
+    <h4>GenSets</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Site
+            </th>
+            <th>
+                Serial
+            </th>
+            <th>
+                Brand/Model
+            </th>
+            <th>
+                Capacity
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Date Delivered
+            </th>
+            <th>
+                Date Installed
+            </th>
+            <th>
+                AC Loading
+            </th>
+            <th>
+                Remarks
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.GenSets)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sites.SiteFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACLoading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("View Details", "GetDetails", new { id = item.SiteID })
+                </td>
+            </tr>
+        }
+    </table>
+}
+}
+
+@if (Model.Others != null)
+{ 
+if (Model.Others.Count() > 0)
+{
+    <h4>ATTS</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Site
+            </th>
+            <th>
+                ATS Serial
+            </th>
+            <th>
+                ATS Type
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Remarks
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Others)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sites.SiteFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSSerial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ATSRemarks)
+                </td>
+                <td>
+                    @Html.ActionLink("View Details", "GetDetails", new { id = item.SiteID })
+                </td>
+            </tr>
+        }
+    </table>
+}
+}
+
+@if (Model.Rectifiers != null)
+{ 
+if (Model.Rectifiers.Count() > 0)
+{
+    <h4>Rectifiers</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Site
+            </th>
+            <th>
+                Serial
+            </th>
+            <th>
+                Brand/Model
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Date Delivered
+            </th>
+            <th>
+                Date Installed
+            </th>
+            <th>
+                Active RM
+            </th>
+            <th>
+                Defective RM
+            </th>
+            <th>
+                DC Loading
+            </th>
+            <th>
+                Backup Time
+            </th>
+            <th>
+                Voltage
+            </th>
+            <th>
+                Current Battery
+            </th>
+            <th>
+                Current Rectifier
+            </th>
+            <th>
+                DCPP Type
+            </th>
+            <th>
+                Remarks
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Rectifiers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sites.SiteFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RMActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RMDefective)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DCLoading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeBackUp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voltage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatteryCurr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RectifierCurr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DCPPType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("View Details", "GetDetails", new { id = item.SiteID })
+                </td>
+            </tr>
+        }
+    </table>
+}
+}
+
+@if (Model.ACUs != null)
+{ 
+if (Model.ACUs.Count() > 0)
+{
+    <h4>ACUs</h4>
+    <table class="table">
+        <tr>
+            <th>
+                Site
+            </th>
+            <th>
+                Serial
+            </th>
+            <th>
+                Brand/Model
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Date Delivered
+            </th>
+            <th>
+                Date Installed
+            </th>
+            <th>
+                Remarks
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.ACUs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sites.SiteFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Units.BrandModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDelivered)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInstalled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("View Details", "GetDetails", new { id = item.SiteID })
+                </td>
+            </tr>
+        }
+    </table>
+}
+}

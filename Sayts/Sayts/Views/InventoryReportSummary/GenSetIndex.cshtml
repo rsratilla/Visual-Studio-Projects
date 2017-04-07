@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Sayts.Models.ClusterSiteInventoryGroup>
+
+@{
+    ViewBag.Title = "Inventory Report Summary";
+}
+
+<h2>Inventory Report Summary</h2>
+
+<p></p>
+
+<table>
+    <tr>
+        <th>
+            Site
+        </th>
+        <th>
+            Genset Count
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sitecode)
+            </td>
+            <td>
+                @item.GenSetCount
+            </td>
+
+            <td>
+                @Html.ActionLink("View Details in Browser", "GensetDetails", new { id = @item.Sitecode.Substring(0, item.Sitecode.IndexOf('-')).Trim() });
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    &nbsp;
+</p>
+
+<p>
+    @Html.ActionLink("View All Details in Browser", "Index", "GenSets", null, null)
+</p>
+
+<p>
+    @Html.ActionLink("Export All to Excel", "ExportGensetToExcel")
+</p>
+
+<p>
+    @Html.ActionLink("Back to Inventory Report Summary Home Page", "Index")
+</p>

@@ -1,0 +1,218 @@
+﻿@model IEnumerable<Sayts.Models.Breaker>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { rid = ViewBag.CurrentRectifierID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rectifiers.Serial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F9)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F10)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F11)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F12)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F13)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F14)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F15)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F16)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F17)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F18)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F19)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F20)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F21)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F22)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F23)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F24)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F25)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F26)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F27)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F28)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F29)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F30)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rectifiers.Serial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F7)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F8)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F9)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F11)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F12)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F13)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F14)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F15)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F17)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F18)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F19)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F20)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F21)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F22)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F23)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F24)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F25)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F26)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F27)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F28)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F29)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F30)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BreakerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BreakerID })
+        </td>
+    </tr>
+}
+
+</table>

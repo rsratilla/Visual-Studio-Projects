@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Sayts.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Clusters.ClusterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeePositions.EmployeePositionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmploymentStatus.EmploymentStatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTeams.SubTeamName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateHired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImmediateHead)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DomainAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficeAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clusters.ClusterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeePositions.EmployeePositionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmploymentStatus.EmploymentStatusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubTeams.SubTeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateHired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImmediateHead)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DomainAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficeAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeNo })
+        </td>
+    </tr>
+}
+
+</table>

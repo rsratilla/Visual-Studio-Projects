@@ -1,0 +1,225 @@
+﻿@model IEnumerable<Sayts.Models.SiteDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Accessibilities.AccessibilityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ACMainSources.ACMName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Areas.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetOwnershipTypes.AssetOwnership)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Baranggays.BarangayName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cities.CityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clusters.ClusterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSMPClassifications.CSMPClass)
+        </th>
+        <th>
+            Site Owner
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationTypes.LocationTypeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Regions.RegionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityAndSafetys.SASName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceCategories.ServiceCat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteClassifications.SiteClassificationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sites.SiteCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteStatus.SiteStatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteTypes.SiteTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terrains.TerrainName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TransportCategories.TransportCat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TXTypes.TXTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseLotNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lattitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SunID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubBase)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessIssue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOfIssue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RiskCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TravelTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessPassTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyRevenue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ForCSMPPMR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accessibilities.AccessibilityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACMainSources.ACMName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Areas.AreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetOwnershipTypes.AssetOwnership)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Baranggays.BarangayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cities.CityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clusters.ClusterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSMPClassifications.CSMPClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employees.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationTypes.LocationTypeDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Regions.RegionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecurityAndSafetys.SASName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceCategories.ServiceCat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteClassifications.SiteClassificationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sites.SiteCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteStatus.SiteStatusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteTypes.SiteTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Terrains.TerrainName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransportCategories.TransportCat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TXTypes.TXTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HouseLotNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lattitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SunID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubBase)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessIssue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeOfIssue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RiskCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TravelTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessPassTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonthlyRevenue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ForCSMPPMR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SiteDetailID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SiteDetailID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SiteDetailID })
+        </td>
+    </tr>
+}
+
+</table>

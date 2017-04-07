@@ -1,0 +1,111 @@
+﻿@model Sayts.Models.PMRMaster
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PMRMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Site Owner
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sites.SiteCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sites.SiteFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PMRDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PMRDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteClassification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteClassification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PMRType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PMRType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WithGS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WithGS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoordinationNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoordinationNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lilo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lilo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainsSimulStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainsSimulStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainsSimulRemarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainsSimulRemarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

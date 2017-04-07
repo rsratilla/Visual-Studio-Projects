@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Sayts.Models.PMRMaster>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div id="DivGrid">
+    @{
+        var grid = new WebGrid(source: Model, canSort: false, rowsPerPage: 20);
+        @grid.GetHtml(htmlAttributes: new { id = "DataTable" }, columns: grid.Columns(
+            grid.Column(columnName: "Sites.SiteFullName", header: "Site"),
+            grid.Column(columnName: "PMRDate", header: "PMR Date"),
+            grid.Column(columnName: "PMRType", header: "Type"),
+            grid.Column(columnName: "SiteClassification", header: "Classification"),
+            grid.Column(columnName: "CoordinationNo", header: "Coordination#"),
+            grid.Column(columnName: "Lilo", header: "Lilo"),
+            grid.Column(columnName: "MainsSimulStatus", header: "MainsSimul Status"),
+            grid.Column(columnName: "MainsSimulRemarks", header: "MainsSimul Remarks"),
+            grid.Column(columnName: "Lilo", header: "Lilo"),
+            grid.Column(columnName: "Employees.FullName", header: "Site Owner"),
+            grid.Column(columnName: "Remarks", header: "Remarks")
+        ));
+    }
+</div>
+
+<p>
+    &nbsp;
+</p>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")

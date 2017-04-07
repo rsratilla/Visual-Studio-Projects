@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Sayts.Models.Employee>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div id="DivGrid">
+    @{
+        var grid = new WebGrid(source: Model, canSort: false, rowsPerPage: 20);
+        @grid.GetHtml(htmlAttributes: new { id = "DataTable" }, columns: grid.Columns(
+            grid.Column(columnName: "Clusters.ClusterName", header: "ClusterName"),
+            grid.Column(columnName: "EmployeeNo", header: "EmployeeNo"),
+            grid.Column(columnName: "GivenName", header: "GivenName"),
+            grid.Column(columnName: "MiddleName", header: "MiddleName"),
+            grid.Column(columnName: "LastName", header: "LastName"),
+            grid.Column(columnName: "ImmediateHead", header: "ImmediateHead"),
+            grid.Column(columnName: "MobileNo", header: "MobileNo"),
+            grid.Column(columnName: "DomainAccount", header: "DomainAccount"),
+            grid.Column(columnName: "EmailAddress", header: "EmailAddress"),
+            grid.Column(columnName: "OfficeAddress", header: "OfficeAddress"),
+            grid.Column(columnName: "EmployeePositions.EmployeePositionName", header: "Position"),
+            grid.Column(columnName: "SubTeams.SubTeamName", header: "SubTeam"),
+            grid.Column(columnName: "DateHired", header: "DateHired"),
+            grid.Column(columnName: "Remarks", header: "Remarks")
+        ));
+    }
+</div>
+
+<p>
+    &nbsp;
+</p>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
